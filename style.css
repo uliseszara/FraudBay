@@ -1,0 +1,306 @@
+/* *** all *** */
+
+body {
+  background-color: #2c332e;
+}
+
+.site-title {
+  margin: 0;
+  padding: 20px 20px;
+  font-size: 30px;
+  font-weight: 100;
+  color: #fff;
+  font-family: Comic Sans MS;
+  text-align: left;
+  float: left;
+}
+
+.site-moto {
+  font-size: 10px;
+  text-align: right;
+  float: right;
+  line-height: 22px;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+/* *** index *** */
+
+.fraud-post-container {
+  position: relatve;
+  width: 1100px;
+  height: 50px;​
+}
+
+.fraud-post {
+  position: relative;
+  left: 30%;
+  top: 200px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 30px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+}
+
+.fraud-post-img {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.fraud-title {
+  font-family: Comic Sans MS;
+  font-size: 22px;
+  font-weight: 100;
+  color: #fff;
+  margin: 0;
+}
+
+.fraud-description {
+  color: #fff;
+}
+
+.fraud-quantity {
+  color: #fff;
+  font-family: Comic Sans MS;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.fraud-post-text-button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderButtonText {
+  color: #2c332e;
+  font-family: Comic Sans MS;
+}
+
+.orderButton {
+  border: 1px solid white;
+  border-radius: 20px;
+  height: 50px;
+  width: 20%;
+  text-align: center;
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+
+/* *** order *** */
+
+
+
+.fraud-post-container-order {
+  position: relatve;
+  width: 1100px;
+  height: 50px;​
+}
+
+.fraud-post-order {
+  position: relative;
+  left: 30%;
+  top: 300%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 30px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+}
+
+.fraud-post-img-order {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.fraud-title-order {
+  font-family: Comic Sans MS;
+  font-size: 22px;
+  font-weight: 100;
+  color: #fff;
+  margin: 0;
+}
+
+.fraud-description-order {
+  color: #fff;
+}
+
+.fraud-quantity-order {
+  color: #fff;
+  font-family: Comic Sans MS;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.fraud-post-text-button-container-order {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.orderingText {
+  font-family: Comic Sans MS;
+  font-size: 22px;
+  font-weight: 100;
+  color: #fff;
+  margin: 0;
+}
+
+.orderForm{
+  border: 1px solid white;
+  border-radius: 20px;
+  color: #fff;
+  font-family: Comic Sans MS;
+  font-size: 12px;
+  font-weight: 80;
+  width: 250px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+  position: fixed;
+  bottom: 20%;
+  left: 45%;
+}
+
+.submitButton {
+  margin-bottom: 10px;
+}
+
+
+
+
+/*
+
+.orderForm{
+  border: 1px solid white;
+  border-radius: 20px;
+  width:13%;
+  height:130px;
+	position: fixed;
+  bottom: 20px;
+  text-align: center;
+}
+
+form {
+  color: #fff;
+  font-family: Comic Sans MS;
+  font-size: 12px;
+  font-weight: 80;
+}
+
+
+*/
+
+
+/* *** review *** */
+
+.orderSummaryDisplay {
+  border: 1px solid white;
+  border-radius: 25px;
+  position: relative;
+  top: 150px;
+  color: #fff;
+  font-family: Comic Sans MS;
+  font-size: 20px;
+  font-weight: 100;
+  width: 75%;
+  left: 15%;
+}
+
+.summaryList {
+  text-align: left;
+}
+
+.summaryTitle {
+  text-align: center;
+  padding-bottom: 5px;,
+}
+
+.summaryFooter {
+  bottom: 0;
+  text-align: center;
+}
+
+.keepShoppingButton {
+  border: 1px solid white;
+  border-radius: 15px;
+  width: 10%;
+  text-align: center;
+  color: #2c332e;
+  font-family: Comic Sans MS;
+  font-size: 15px;
+  font-weight: 200;
+  position: fixed;
+  bottom: 10%;
+  left: 45%;
+  background-color: white;
+}
+
+.keepShoppingButton:hover {
+  color: white;
+  background-color: #2c332e
+}
+
+/* 404 */
+
+.pg-404-container {
+  border: 1px solid white;
+  border-radius: 15px;
+  width: 16%;
+  height: 10%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 90px;
+  position: fixed;
+  top: 15%;
+  left: 39%;
+}
+
+/* static directory */
+
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.pg-staticDirectory-container {
+  border: 1px solid white;
+  border-radius: 15px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 90px;
+  position: fixed;
+  top: 15%;
+  left: 39%;
+  color: black;
+}
+
+.staticDirectory {
+  text-align: left;
+  font-family: Comic Sans MS;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.staticDirectoryBody {
+  background-color: white;
+}
+
+/*
+*/
