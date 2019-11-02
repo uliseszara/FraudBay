@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>FraudBay - Order</title>
+        <link rel="stylesheet" href="style.css" media="screen">
+    </head>
+
+    <body>
+      <header>
+        <a href="index.html">
+          <h1 class='site-title'>FraudBay</h1>
+        </a>
+        <h3 class='site-moto site-title'>where frauders play</h3>
+      </header>
+
+      <div class='main'>
+        <form class='newPost' action="post.html">
+          <h1> Create a new Post</h1>
+          <input type="submit" value="Image" class='submitButton'>
+          <br>
+          Title :
+          <br>
+          <input type="text" name="Title">
+          <br>
+          Description :
+          <br>
+          <input type = "text" name = "Description">
+          <br>
+          Quantity :
+          <br>
+          <input type = "text" name = "Quantity">
+          <br>
+          Warehouse :
+          <br>
+          <label class="container">Warehouse 1
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>     
+          <br>
+
+          <label class="container">Warehouse 2
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <br>
+
+          <label class="container">Warehouse 3
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <br>
+
+          <label class="container">Warehouse 4
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <br>
+          <a href="warehouse.html">
+            <input value="Add Warehouse" class='submitButton'>
+          </a>
+          <br><br>
+          <a href="index.html">
+            <input value="Create Post" class='submitButton'>
+          </a>
+        </form>
+      </div>
+    </body>
+</html>
