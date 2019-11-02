@@ -37,8 +37,8 @@ a {
 
 .fraud-post {
   position: relative;
-  left: 30%;
-  top: 200px;
+  left: 5%;
+  top: 300%;
   padding-top: 40px;
   padding-bottom: 40px;
   border-radius: 30px;
@@ -109,7 +109,7 @@ a {
 
 .fraud-post-order {
   position: relative;
-  left: 30%;
+  right: 10%;
   top: 300%;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -159,19 +159,21 @@ a {
 }
 
 .orderForm{
-  border: 1px solid white;
-  border-radius: 20px;
-  color: #fff;
-  font-family: Comic Sans MS;
-  font-size: 12px;
-  font-weight: 80;
-  width: 250px;
-  display: inline-block;
-  text-align: center;
-  padding-top: 10px;
-  position: fixed;
-  bottom: 20%;
-  left: 45%;
+  border: 1px solid
+white;
+border-radius: 20px;
+color:
+#fff;
+font-family: Comic Sans MS;
+font-size: 12px;
+font-weight: 80;
+width: 250px;
+display: inline-block;
+text-align: center;
+padding-top: 10px;
+position: fixed;
+bottom: 41.5%;
+right: 0%;
 }
 
 .newPost
