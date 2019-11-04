@@ -2,38 +2,95 @@
 <html>
     <head>
         <meta charset = "utf-8">
-        <title>FraudBay</title>
+        <title>FraudBay - Home</title>
         <link rel="stylesheet" href="style.css" media="screen">
+        <script src="index.js" charset="utf-8" defer></script>
     </head>
 
     <body>
       <header>
         <h1 class='site-title'>FraudBay</h1>
-        <h3 class='site-moto site-title'>where frauders play</h3>
+        <input type="text" class="header-search-input" placeholder="Search for post...">
+        <h3 class='site-moto'>where frauders play</h3>
       </header>
 
       <div class='fraud-post-container'>
-        <div class='fraud-post'>
+        <div class="fraud-post">
           <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkTagjHprP8ZCTpSzzYYS-azINSpdJ2GRueEgFZUlhGFJDsPMB' class='fraud-post-img fraud-post-element'>
           <div class='fraud-post-text-button-container'>
             <div class='fraud-post-text fraud-post-element'>
-              <h2 class='fraud-title'>FraudBay Post Heading</h2>
+              <div class='fraud-post-header'>
+                <h2 class='fraud-title'>FraudBay Post Heading</h2>
+
+                <div class='edit-fraud-post-btn'><p class='editButtonText'>edit/delete</p></div>
+
+              </div>
               <p class='fraud-description'>FraudBay example post description: This bike is super cool and you know you want it, so you should spend your hard earned money on this bike. You will definitely recieve this bike</p>
-              <h3 class='fraud-quantity'>Quanity: 1</h3>
+              <div class='fraud-numbers'>
+                <h3 class='fraud-quantity'>Quanity: 1</h3>
+                <h3 class='fraud-price'>Price: $444.44</h3>
+              </div>
             </div>
-            <a href="order.html">
-              <div class='orderButton'><p class='orderButtonText'>Order Now!</p></div>
-            </a>
+            <div class='orderButton'><a style="text-decoration: none" class='orderButtonLink' href="order.html"><p class='orderButtonText'>Order Now!</p></a></div>
           </div>
         </div>
-              
+
+        <div class="fraud-post">
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkTagjHprP8ZCTpSzzYYS-azINSpdJ2GRueEgFZUlhGFJDsPMB' class='fraud-post-img fraud-post-element'>
+          <div class='fraud-post-text-button-container'>
+            <div class='fraud-post-text fraud-post-element'>
+              <div class='fraud-post-header'>
+                <h2 class='fraud-title'>FraudBay Post 2</h2>
+                <div class='edit-fraud-post-btn'><p class='editButtonText'>edit/delete</p></div>
+              </div>
+              <p class='fraud-description'>FraudBay example post description: This bike is super cool and you know you want it, so you should spend your hard earned money on this bike. You will definitely recieve this bike</p>
+              <div class='fraud-numbers'>
+                <h3 class='fraud-quantity'>Quanity: 1</h3>
+                <h3 class='fraud-price'>Price: $444.44</h3>
+              </div>
+            </div>
+            <div class='orderButton'><a style="text-decoration: none" class='orderButtonLink' href="order.html"><p class='orderButtonText'>Order Now!</p></a></div>
+          </div>
+        </div>
+
+
+        <div class="fraud-post">
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkTagjHprP8ZCTpSzzYYS-azINSpdJ2GRueEgFZUlhGFJDsPMB' class='fraud-post-img fraud-post-element'>
+          <div class='fraud-post-text-button-container'>
+            <div class='fraud-post-text fraud-post-element'>
+              <div class='fraud-post-header'>
+                <h2 class='fraud-title'>FraudBay Post 3</h2>
+                <div class='edit-fraud-post-btn'><p class='editButtonText'>edit/delete</p></div>
+              </div>
+              <p class='fraud-description'>FraudBay example post description: This bike is super cool and you know you want it, so you should spend your hard earned money on this bike. You will definitely recieve this bike</p>
+              <div class='fraud-numbers'>
+                <h3 class='fraud-quantity'>Quanity: 1</h3>
+                <h3 class='fraud-price'>Price: $444.44</h3>
+              </div>
+            </div>
+            <div class='orderButton'><a style="text-decoration: none" class='orderButtonLink' href="order.html"><p class='orderButtonText'>Order Now!</p></a></div>
+          </div>
+        </div>
 
       </div>
+
+      <div class='editModal hidden'>
+        <div class='modalHeader'>Enter Post Validation Code</div>
+        <div class='modalBody'>
+          <h3>Validation Code:<h3>
+          <input type="text" class="validationInput" placeholder="Enter validation code...">
+        </div>
+        <div class='modalFooter'>
+          <div class='validateButton'>Validate</div>
+          <div class='cancelButton'>Cancel</div>
+        </div>
+      </div>
+
       <a href="post.html">
         <button type="button" id="sell-something-button">
             <p>+</p>
         </button>
       </a>
-      
+
     </body>
 </html>

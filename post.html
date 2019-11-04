@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset = "utf-8">
-        <title>FraudBay - Order</title>
+        <title>FraudBay - Post</title>
         <link rel="stylesheet" href="style.css" media="screen">
+        <script src="index.js" charset="utf-8" defer></script>
     </head>
 
     <body>
@@ -22,21 +23,22 @@
           Title :
           <br>
           <input type="text" name="Title">
-          <br>
+          <br><br>
           Description :
           <br>
           <input type = "text" name = "Description">
-          <br>
+          <br><br>
           Quantity :
           <br>
           <input type = "text" name = "Quantity">
+          <br>
           <br>
           Warehouse :
           <br>
           <label class="container">Warehouse 1
             <input type="checkbox">
             <span class="checkmark"></span>
-          </label>     
+          </label>
           <br>
 
           <label class="container">Warehouse 2
@@ -56,14 +58,28 @@
             <span class="checkmark"></span>
           </label>
           <br>
+          <br>
           <a href="warehouse.html">
-            <input value="Add Warehouse" class='submitButton'>
+            <input type='button' value="Add Warehouse" class='submitButton'>
           </a>
           <br><br>
-          <a href="index.html">
-            <input value="Create Post" class='submitButton'>
-          </a>
+          <input type='button' value="Create Post" class='submitButton createPostSubmit'>
+          <br><br>
+
         </form>
       </div>
+
+      <div class='codeModal hidden'>
+        <div class='codeModalHeader'>Save Your Validation Code!!!</div>
+        <div class='codeModalBody'>
+          <h4 class='codeModalBodyText'>Validation Code:</h4>
+          <h3 class='codeModalBodyCode'>1234x_1</h3>
+        </div>
+        <div class='codeModalFooter'>
+          <p class='codeModalDescription'>This validation code allows you to edite/delete your posts!</p>
+        </div>
+        <div class='codeModalContinueButton'>Continue</div>
+      </div>
+
     </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FraudBay - Edit</title>
+        <link rel="stylesheet" href="style.css" media="screen">
+        <script src="index.js" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+        <a href="index.html">
+          <h1 class='site-title'>FraudBay</h1>
+        </a>
+        <h3 class="site-moto site-title">where frauders play</h3>
+      </header>
+
+      <a href='index.html'><div class='delete-post-button'><p>Delete Post</p></div></a>
+
+
+      <p class='originalText'>Original</p>
+      <p class='newText'>New</p>
+      <div class='editForm'>
+        <div class='formElement editTitle'>
+          <p class='editHeader'>Post Title:</p>
+          <div class='originalTitle'>
+            Example Original Title
+          </div>
+          <input type="text" class="newTitleInput" placeholder="Enter New Title...">
+        </div>
+
+        <div class='formElement editDescription'>
+          <p class='editHeader'>Post Description:</p>
+          <div class='originalDescription'>
+            FraudBay example post description: This bike is super cool and you know you want it, so you should spend your hard earned money on this bike. You will definitely recieve this bike
+          </div>
+          <input type="text" class="newDescriptionInput" placeholder="Enter New Description...">
+        </div>
+
+        <div class='formElement editPrice'>
+          <p class='editHeader'>Post Price:</p>
+          <div class='originalPrice'>
+            $444.44
+          </div>
+          <input type="number" class="newPriceInput" placeholder="Enter New Price...">
+        </div>
+
+        <div class='formElement editQuantity'>
+          <p class='editHeader'>Post Quantity:</p>
+          <div class='originalQuantity'>
+            1
+          </div>
+          <input type="number" class="newQuantityInput" placeholder="Enter New Quantity...">
+        </div>
+
+        <div class='formElement editImage'>
+          <p class='editHeader'>Post Image:</p>
+          <div class='ogImg'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkTagjHprP8ZCTpSzzYYS-azINSpdJ2GRueEgFZUlhGFJDsPMB' class='fraud-post-img'></div>
+          <input type="submit" value="New Image" class='imgEditUpload'>
+        </div>
+      </div>
+
+      <a href='index.html'><div class='save-edits-button'><p>Save Edits</p></div></a>
+
+    </body>
+</html>
