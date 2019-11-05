@@ -721,6 +721,25 @@ input[type="checkbox"] {
 }
 
 
+.warehouse-container{
+  display: inline-block;
+  margin-bottom: 3px;
+  margin-top: 1px;
+
+}
+.warehouse-address{
+  display: inline-block;
+}
+.warehouse-city{
+  display: inline-block;
+}
+.warehouse-state{
+  display: inline-block;
+}
+.warehouse-zip-code{
+  display: inline-block;
+}
+
 /* warehouse */
 
 .newWarehouse
