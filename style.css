@@ -303,7 +303,7 @@ a {
 .fraud-post-order {
   position: relative;
   left: 17%;
-  top: 300%;
+  top: 200%;
   padding-top: 40px;
   padding-bottom: 40px;
   border-radius: 30px;
@@ -353,6 +353,22 @@ a {
   margin: 0;
 }
 
+.customerForm{
+  border: 1px solid white;
+  border-radius: 20px;
+  color: #fff;
+  font-family: Comic Sans MS;
+  font-size: 12px;
+  font-weight: 80;
+  width: 250px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+  position: absolute;
+  top: 57%;
+  left: 28%;
+}
+
 .orderForm{
   border: 1px solid white;
   border-radius: 20px;
@@ -365,8 +381,12 @@ a {
   text-align: center;
   padding-top: 10px;
   position: absolute;
-  bottom: 8%;
-  left: 41%;
+  top: 57%;
+  left: 55%;
+}
+
+.orderForm input[type='number'] {
+  width: 20%;
 }
 
 .submitButton {
@@ -381,30 +401,35 @@ a {
 .orderSummaryDisplay {
   border: 1px solid white;
   border-radius: 25px;
-  position: relative;
+  position: absolute;
   top: 150px;
   color: #fff;
   font-family: Comic Sans MS;
   font-size: 20px;
   font-weight: 100;
   width: 75%;
-  left: 15%;
-}
-
-.summaryList {
-  text-align: left;
+  left: 13%;
+  padding-top: 100px;
 }
 
 .summaryTitle {
-  position: relative;
-  padding-bottom: 5px;
-  left: 30%;
-  width: 50%;
+  color: #fff;
+  font-family: Comic Sans MS;
+  font-size: 45px;
+  font-weight: 100;
+  position: absolute;
+  top: 135px;
+  left: 40%;
 }
 
-.summaryFooter {
-  bottom: 0;
-  text-align: center;
+.orderSummaryDisplay h2 {
+  position: relative;
+  left: 3%;
+}
+
+.summaryList {
+  position: relative;
+  left: 5%;
 }
 
 .keepShoppingButton {
@@ -416,16 +441,19 @@ a {
   font-family: Comic Sans MS;
   font-size: 15px;
   font-weight: 200;
-  position: fixed;
-  bottom: 10%;
+  position: absolute;
+  top: 130%;
   left: 45%;
   background-color: white;
+  margin-bottom: 20px;
 }
 
 .keepShoppingButton:hover {
   color: white;
   background-color: #2c332e
 }
+
+
 
 /* 404 */
 
@@ -447,14 +475,14 @@ a {
 
 
 .pg-staticDirectory-container {
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 15px;
   text-align: center;
   vertical-align: middle;
   line-height: 90px;
   position: fixed;
-  top: 15%;
-  left: 39%;
+  top: 5%;
+  left: 25%;
   color: black;
 }
 
@@ -467,6 +495,9 @@ a {
 
 .staticDirectoryBody {
   background-color: white;
+}
+.staticDirectory a {
+  color: blue;
 }
 
 /* editFraud */
@@ -680,8 +711,8 @@ input[type="checkbox"] {
   padding-bottom: 20px;
   padding-top: 15px;
   font-family: Comic Sans MS;
-  top: 67%;
-  left: 38%;
+  top: 24%;
+  left: 72%;
 }
 
 .codeModalHeader {
@@ -720,6 +751,11 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+.all-warehouses {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px
+}
 
 .warehouse-container{
   display: inline-block;
@@ -739,7 +775,22 @@ input[type="checkbox"] {
 .warehouse-zip-code{
   display: inline-block;
 }
+.warehouse-quantity{
+  display: inline-block;
+}
 
+.warehouse-quantity input {
+  width: 20%;
+  display: inline-block;
+}
+
+.warehouse-quantity p {
+  display: inline-block;
+}
+
+.totalProductQuantity {
+  display: inline-block;
+}
 /* warehouse */
 
 .newWarehouse

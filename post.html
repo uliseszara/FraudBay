@@ -28,11 +28,7 @@
           <br>
           <input type = "text" name = "Description">
           <br><br>
-          Quantity :
-          <br>
-          <input type = "text" name = "Quantity">
-          <br>
-          <br>
+
           Warehouse Locations:
           <br>
           <label class="container">
@@ -42,44 +38,37 @@
                 <div class = "warehouse-city">City</div>,
                 <div class = "warehouse-state">State</div>,
                 <div class = "warehouse-zip-code">Zip-code</div>
+                <input type="checkbox" class='product-warehouse-checkbox'>
+                <div class="hidden warehouse-quantity-faux">
+                  <p>Quantity:</p>
+                  <input type="number">
+                </div>
+              </div>
 
-                <input type="checkbox">
-                <span class="checkmark"></span>
+              <div class = "warehouse-container">
+                <div class = "warehouse-address">Street Address</div>,
+                <div class = "warehouse-city">City</div>,
+                <div class = "warehouse-state">State</div>,
+                <div class = "warehouse-zip-code">Zip-code</div>
+                <input type="checkbox" class='product-warehouse-checkbox'>
+                <div class="hidden warehouse-quantity-faux">
+                  <p>Quantity:</p>
+                  <input type="number">
+                </div>
               </div>
-              <div class="warehouse-container">
-                <div class="warehouse-address">Street Address</div>,
-                <div class="warehouse-city">City</div>,
-                <div class="warehouse-state">State</div>,
-                <div class="warehouse-zip-code">Zip-code</div>
-              
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </div>
-              <div class="warehouse-container">
-                <div class="warehouse-address">Street Address</div>,
-                <div class="warehouse-city">City</div>,
-                <div class="warehouse-state">State</div>,
-                <div class="warehouse-zip-code">Zip-code</div>
-              
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </div>
-              <div class="warehouse-container">
-                <div class="warehouse-address">Street Address</div>,
-                <div class="warehouse-city">City</div>,
-                <div class="warehouse-state">State</div>,
-                <div class="warehouse-zip-code">Zip-code</div>
-              
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </div>
+
             </div>
           </label>
           <br>
           <br>
           <a href="warehouse.html">
-            <input type='button' value="Add Warehouse" class='submitButton'>
+            <input type='button' value="Add Warehouses" class='submitButton'>
           </a>
+          <br><br>
+
+          <div class='totalProductQuantityDisplay'>
+            Total Product Quantity: <h3 class='totalProductQuantity'>0</h3>
+          </div>
           <br><br>
           <input type='button' value="Create Post" class='submitButton createPostSubmit'>
           <br><br>
@@ -94,7 +83,7 @@
           <h3 class='codeModalBodyCode'>1234x_1</h3>
         </div>
         <div class='codeModalFooter'>
-          <p class='codeModalDescription'>This validation code allows you to edite/delete your posts!</p>
+          <p class='codeModalDescription'>This validation code allows you to edite/delete your post!</p>
         </div>
         <div class='codeModalContinueButton'>Continue</div>
       </div>

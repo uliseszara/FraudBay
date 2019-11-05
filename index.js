@@ -76,3 +76,23 @@ if(createPostButton != null) {
     window.open("index.html","_self");
   });
 }
+
+var warehouseContainers = document.querySelectorAll('.warehouse-container');
+
+if(warehouseContainers != null) {
+  warehouseContainers.forEach(function(elem) {
+    var checkbox = elem.querySelector('.product-warehouse-checkbox');
+    var warehouseQuantitySection = elem.querySelector(".warehouse-quantity-faux, .warehouse-quantity");
+    checkbox.addEventListener("change", function() {
+      if(this.checked) {
+        warehouseQuantitySection.classList.remove('hidden');
+        warehouseQuantitySection.classList.remove('warehouse-quantity-faux');
+        warehouseQuantitySection.classList.add('warehouse-quantity');
+      } else {
+        warehouseQuantitySection.classList.add('hidden');
+        warehouseQuantitySection.classList.add('warehouse-quantity-faux');
+        warehouseQuantitySection.classList.remove('warehouse-quantity');
+      }
+    });
+  });
+}
