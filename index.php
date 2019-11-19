@@ -15,15 +15,15 @@
   $result = $conn->query($sql);
 
 
-  function displayFraudPost($id, $img, $heading, $description, $quantity, $price) {
-    echo  "<div class='fraud-post'>
+  function displayFraudPost($id, $img, $heading, $description, $quantity, $price, $validationCode) {
+    echo  "<div class='fraud-post product-id-" . $id . "'>
               <img src='" . $img . "' class='fraud-post-img fraud-post-element'>
               <div class='fraud-post-text-button-container'>
                 <div class='fraud-post-text fraud-post-element'>
                   <div class='fraud-post-header'>
                     <h2 class='fraud-title'>" . $heading . "</h2>
 
-                    <div class='edit-fraud-post-btn'><p class='editButtonText'>edit/delete</p></div>
+                    <div class='edit-fraud-post-btn se-" . $validationCode . "-cret'><p class='editButtonText'>edit/delete</p></div>
 
                   </div>
                   <p class='fraud-description'>" . $description . "</p>
@@ -32,7 +32,7 @@
                     <h3 class='fraud-price'>Price: $" . $price . "</h3>
                   </div>
                 </div>
-                <div class='orderButton'><a style='text-decoration: none' class='orderButtonLink' href='order.html'><p class='orderButtonText'>Order Now!</p></a></div>
+                <div class='orderButton'><p class='orderButtonText'>Order Now!</p></div>
               </div>
             </div>";
   }
@@ -58,7 +58,7 @@
           if ($result->num_rows > 0) {
               // output data of each row
               while($row = $result->fetch_assoc()) {
-                displayFraudPost($row["id"], $row["product_image"], $row["product_name"], $row["product_description"], $row["product_quantity"], $row["product_price"]);
+                displayFraudPost($row["id"], $row["product_image"], $row["product_name"], $row["product_description"], $row["product_quantity"], $row["product_price"], $row["validation_code"]);
               }
           } else {
               echo "0 results";

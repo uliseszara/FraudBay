@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <?php
   $servername = "classmysql.engr.oregonstate.edu";
   $username = "cs340_zaragozu";
@@ -12,7 +14,7 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  
+
   $sql = "
   INSERT INTO products (product_name, product_description, product_price, product_image, validation_code, product_quantity)
   VALUES ('" .  $_GET['Title'] . "', '" .  $_GET['Description'] . "', '" .  $_GET['Price'] . "', '" .  $_GET['Image'] . "', '" .  $rand . "', " . $sum . ")";
@@ -53,7 +55,41 @@
     die('could not update');
   }
 
-  $conn->close();
+?>
 
-  header("location:javascript://history.go(-1)");
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>FraudBay - Post</title>
+        <link rel="stylesheet" href="style.css" media="screen">
+        <script src="index.js" charset="utf-8" defer></script>
+    </head>
+
+    <body>
+      <header>
+        <a href="index.php">
+          <h1 class='site-title'>FraudBay</h1>
+        </a>
+        <h3 class='site-moto site-title'>where frauders play</h3>
+      </header>
+
+      <div class='codeModal'>
+        <div class='codeModalHeader'>Save Your Validation Code!!!</div>
+        <div class='codeModalBody'>
+          <h4 class='codeModalBodyText'>Validation Code:</h4>
+          <h3 class='codeModalBodyCode'><?php echo $rand ?></h3>
+        </div>
+        <div class='codeModalFooter'>
+          <p class='codeModalDescription'>This validation code allows you to edite/delete your post!</p>
+        </div>
+        <a href='index.php'>
+          <div class='codeModalContinueButton'>Continue</div>
+        </a>
+      </div>
+
+    </body>
+</html>
+
+<?php
+$conn->close();
 ?>

@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+<?php
+$servername = "classmysql.engr.oregonstate.edu";
+$username = "cs340_zaragozu";
+$password = "3243";
+$dbname = "cs340_zaragozu";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM products WHERE id = " . $_GET['productId'];
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+ ?>
+
 <html>
     <head>
         <meta charset = "utf-8">
@@ -18,14 +35,14 @@
       <div class='main'>
         <div class='fraud-post-container-order'>
           <div class='fraud-post-order'>
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkTagjHprP8ZCTpSzzYYS-azINSpdJ2GRueEgFZUlhGFJDsPMB' class='fraud-post-img fraud-post-element'>
+            <img src='<?php echo $row['product_image'] ?>' class='fraud-post-img fraud-post-element'>
             <div class='fraud-post-text-button-container-order'>
               <div class='fraud-post-text-order fraud-post-element-order'>
-                <h2 class='fraud-title-order'>FraudBay Post Heading</h2>
-                <p class='fraud-description-order'>This is the page where the FraudBay customer will input his information to complete his order. Upon completion of fields and submission, user will be redirected to order review.</p>
+                <h2 class='fraud-title-order'><?php echo $row['product_name'] ?></h2>
+                <p class='fraud-description-order'><?php echo $row['product_description'] ?></p>
                 <div class='fraud-numbers'>
-                  <h3 class='fraud-quantity'>Quanity: 1</h3>
-                  <h3 class='fraud-price'>Price: $444.44</h3>
+                  <h3 class='fraud-quantity'>Quanity: <?php echo $row['product_quantity'] ?></h3>
+                  <h3 class='fraud-price'>Price: $<?php echo $row['product_price'] ?></h3>
                 </div>
                 <h2 class='orderingText'>Currently Ordering - Fill form below & Submit</h2>
               </div>
@@ -77,3 +94,7 @@
       </div>
     </body>
 </html>
+
+<?php
+$conn->close();
+?>

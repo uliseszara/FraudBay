@@ -41,10 +41,22 @@ function handleSearch () {
 
 var editPostButtons = document.querySelectorAll('.edit-fraud-post-btn');
 var editModal = document.querySelector('.editModal');
+var validationCode;
+var editProductId;
 
 editPostButtons.forEach(function(elem) {
   elem.addEventListener("click", function () {
     editModal.classList.remove('hidden');
+    var tokens = this.classList[1].split(/[ -]+/);
+    validationCode = tokens[1];
+    var classList = elem.parentElement.parentElement.parentElement.parentElement.classList;
+    classList.forEach(function(elem2) {
+      if(elem2.includes('product-id')) {
+        editProductId = elem2;
+      }
+    })
+    tokens = editProductId.split(/[ -]+/);
+    editProductId = tokens[2];
   })
 });
 
@@ -59,9 +71,38 @@ if(cancelButton != null) {
 
 if(validateButton != null) {
   validateButton.addEventListener("click", function () {
-    window.open("editFraud.html","_self");
+    var userInput = document.querySelector('input[class="validationInput"]').value;
+
+    if(userInput == validationCode) {
+      var url = 'editFraud.php?productId='+editProductId;
+      window.open(url,"_self");
+    } else {
+      document.querySelector('input[class="validationInput"]').value = '';
+      editModal.classList.add('hidden');
+    }
   });
 }
+
+var orderButtons = document.querySelectorAll('.orderButton');
+
+if(orderButtons != null) {
+  orderButtons.forEach(function(elem) {
+    elem.addEventListener("click", function () {
+      var classList = elem.parentElement.parentElement.classList;
+      var productId;
+      classList.forEach(function(elem2) {
+        if(elem2.includes('product-id')) {
+          productId = elem2;
+        }
+      })
+      var tokens = productId.split(/[ -]+/);
+      productId = tokens[2];
+      var url = 'order.php?productId='+productId;
+      window.open(url,"_self");
+    })
+  });
+}
+
 
 // post
 
@@ -96,25 +137,6 @@ if(warehouseContainers != null) {
   });
 }
 
-
-
-var createPostButton = document.querySelector('.createPostSubmit');
-var codeModal = document.querySelector('.codeModal');
-
-
-
-
-if(createPostButton != null) {
-  createPostButton.addEventListener("click", function () {
-    codeModal.classList.remove('hidden');
-  });
-
-  var codeModalContinueButton = document.querySelector('.codeModalContinueButton');
-
-  codeModalContinueButton.addEventListener('click', function () {
-    window.open("index.php","_self");
-  });
-}
 
 
 // DB stuff

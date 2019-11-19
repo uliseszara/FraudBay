@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+<?php
+$servername = "classmysql.engr.oregonstate.edu";
+$username = "cs340_zaragozu";
+$password = "3243";
+$dbname = "cs340_zaragozu";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM products WHERE id = " . $_GET['productId'];
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+ ?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -23,7 +39,7 @@
         <div class='formElement editTitle'>
           <p class='editHeader'>Post Title:</p>
           <div class='originalTitle'>
-            Example Original Title
+            <?php echo $row['product_name'] ?>
           </div>
           <input type="text" class="newTitleInput" placeholder="Enter New Title...">
         </div>
@@ -31,7 +47,7 @@
         <div class='formElement editDescription'>
           <p class='editHeader'>Post Description:</p>
           <div class='originalDescription'>
-            FraudBay example post description: This bike is super cool and you know you want it, so you should spend your hard earned money on this bike. You will definitely recieve this bike
+            <?php echo $row['product_description'] ?>
           </div>
           <input type="text" class="newDescriptionInput" placeholder="Enter New Description...">
         </div>
@@ -39,7 +55,7 @@
         <div class='formElement editPrice'>
           <p class='editHeader'>Post Price:</p>
           <div class='originalPrice'>
-            $444.44
+            <?php echo $row['product_price'] ?>
           </div>
           <input type="number" class="newPriceInput" placeholder="Enter New Price...">
         </div>
@@ -47,14 +63,14 @@
         <div class='formElement editQuantity'>
           <p class='editHeader'>Post Quantity:</p>
           <div class='originalQuantity'>
-            1
+            <?php echo $row['product_quantity'] ?>
           </div>
           <input type="number" class="newQuantityInput" placeholder="Enter New Quantity...">
         </div>
 
         <div class='formElement editImage'>
           <p class='editHeader'>Post Image:</p>
-          <div class='ogImg'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkTagjHprP8ZCTpSzzYYS-azINSpdJ2GRueEgFZUlhGFJDsPMB' class='fraud-post-img'></div>
+          <div class='ogImg'><img src='<?php echo $row['product_image'] ?>' class='fraud-post-img'></div>
           <input type="submit" value="New Image" class='imgEditUpload'>
         </div>
       </div>

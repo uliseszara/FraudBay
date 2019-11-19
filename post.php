@@ -103,17 +103,6 @@
         </form>
       </div>
 
-      <div class='codeModal hidden'>
-        <div class='codeModalHeader'>Save Your Validation Code!!!</div>
-        <div class='codeModalBody'>
-          <h4 class='codeModalBodyText'>Validation Code:</h4>
-          <h3 class='codeModalBodyCode'>1234x_1</h3>
-        </div>
-        <div class='codeModalFooter'>
-          <p class='codeModalDescription'>This validation code allows you to edite/delete your post!</p>
-        </div>
-        <div class='codeModalContinueButton'>Continue</div>
-      </div>
 
     </body>
 </html>
