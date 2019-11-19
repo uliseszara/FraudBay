@@ -1,3 +1,4 @@
+// home
 var searchBox = document.querySelector('.header-search-input');
 
 if(searchBox != null) {
@@ -62,8 +63,46 @@ if(validateButton != null) {
   });
 }
 
+// post
+
+var warehouseContainers = document.querySelectorAll('.warehouse-container');
+var totalProductQuantity = document.querySelector('.totalProductQuantity');
+var sum = 0;
+
+if(warehouseContainers != null) {
+  warehouseContainers.forEach(function(elem) {
+    var checkbox = elem.querySelector('.product-warehouse-checkbox');
+    var warehouseQuantitySection = elem.querySelector(".warehouse-quantity-faux, .warehouse-quantity");
+    var quantityInput = elem.querySelector('.warehouse-product-quantityInput');
+    checkbox.addEventListener("change", function() {
+      if(this.checked) {
+        warehouseQuantitySection.classList.remove('hidden');
+        warehouseQuantitySection.classList.remove('warehouse-quantity-faux');
+        warehouseQuantitySection.classList.add('warehouse-quantity');
+        quantityInput.value = 0;
+      } else {
+        warehouseQuantitySection.classList.add('hidden');
+        warehouseQuantitySection.classList.add('warehouse-quantity-faux');
+        warehouseQuantitySection.classList.remove('warehouse-quantity');
+        sum -= Number(quantityInput.value);
+        totalProductQuantity.innerHTML = sum;
+      }
+    });
+
+    quantityInput.addEventListener("change", function() {
+      sum += Number(this.value);
+      totalProductQuantity.innerHTML = sum;
+    });
+  });
+}
+
+
+
 var createPostButton = document.querySelector('.createPostSubmit');
 var codeModal = document.querySelector('.codeModal');
+
+
+
 
 if(createPostButton != null) {
   createPostButton.addEventListener("click", function () {
@@ -73,26 +112,9 @@ if(createPostButton != null) {
   var codeModalContinueButton = document.querySelector('.codeModalContinueButton');
 
   codeModalContinueButton.addEventListener('click', function () {
-    window.open("index.html","_self");
+    window.open("index.php","_self");
   });
 }
 
-var warehouseContainers = document.querySelectorAll('.warehouse-container');
 
-if(warehouseContainers != null) {
-  warehouseContainers.forEach(function(elem) {
-    var checkbox = elem.querySelector('.product-warehouse-checkbox');
-    var warehouseQuantitySection = elem.querySelector(".warehouse-quantity-faux, .warehouse-quantity");
-    checkbox.addEventListener("change", function() {
-      if(this.checked) {
-        warehouseQuantitySection.classList.remove('hidden');
-        warehouseQuantitySection.classList.remove('warehouse-quantity-faux');
-        warehouseQuantitySection.classList.add('warehouse-quantity');
-      } else {
-        warehouseQuantitySection.classList.add('hidden');
-        warehouseQuantitySection.classList.add('warehouse-quantity-faux');
-        warehouseQuantitySection.classList.remove('warehouse-quantity');
-      }
-    });
-  });
-}
+// DB stuff

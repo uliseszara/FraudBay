@@ -9,14 +9,14 @@
 
 <body>
     <header>
-        <a href="index.html">
+        <a href="index.php">
             <h1 class='site-title'>FraudBay</h1>
         </a>
         <h3 class='site-moto site-title'>where frauders play</h3>
     </header>
 
     <div class='main'>
-        <form class='newWarehouse' action="newPost.html">
+        <form class='newWarehouse' action='warehouse_db.php'>
             <h1> Add a new Warehouse</h1>
             <br>
             Street Address :
@@ -36,9 +36,7 @@
             <input type="text" name="zipCode">
             <br>
             <br><br>
-            <a href="post.html">
-                <input type='button' value="Add Warehouse" class='submitButton warehouseCreateButton'>
-            </a>
+            <input type='submit' value="Add Warehouse" class='submitButton warehouseCreateButton'>
         </form>
     </div>
 </body>
