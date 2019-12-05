@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <?php
+// DB connection credentials
 $servername = "classmysql.engr.oregonstate.edu";
 $username = "cs340_zaragozu";
 $password = "3243";
 $dbname = "cs340_zaragozu";
 
+// establish connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// test connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+// sql to select product info for product being ordered
 $sql = "SELECT * FROM products WHERE id = " . $_GET['productId'];
+// run the query
 $result = $conn->query($sql);
+// obtain the query results
 $row = $result->fetch_assoc();
+
+// function to display the warehouse information storing the product
+  // concatenates the HTML string to output
+function displayWarehouses($num, $addr, $city, $state, $zip, $quant) {
+  echo "
+  <h3>Warehouse #" . $num . "</h3>
+  <ul>
+    <li>Street Address: <i>'" . $addr . "'</i></li>
+    <li>City: <i>'" . $city . "'</i></li>
+    <li>State: <i>'" . $state . "'</i></li>
+    <li>Zip: <i>'" . $zip . "'</i></li>
+    <li>Product Quantity Stored: <i>'" . $quant . "'</i></li>
+  </ul>
+  ";
+}
  ?>
 
 <html>
@@ -34,7 +55,7 @@ $row = $result->fetch_assoc();
 
       <div class='main'>
         <div class='fraud-post-container-order'>
-          <div class='fraud-post-order'>
+          <div class='fraud-post-order product-id-<?php echo $_GET['productId'] ?>'>
             <img src='<?php echo $row['product_image'] ?>' class='fraud-post-img fraud-post-element'>
             <div class='fraud-post-text-button-container-order'>
               <div class='fraud-post-text-order fraud-post-element-order'>
@@ -49,7 +70,7 @@ $row = $result->fetch_assoc();
             </div>
           </div>
         </div>
-        <form class='orderFormTotal' action="review.html">
+        <form class='orderFormTotal' action="review.php">
           <div class='customerForm'>
             <h2>Customer Form</h2>
             <br><br>
@@ -59,7 +80,7 @@ $row = $result->fetch_assoc();
             <br>
             Last Name :
             <br>
-            <input type = "text" name = "password">
+            <input type = "text" name = "lastname">
             <br>
             Street Address :
             <br>
@@ -84,11 +105,45 @@ $row = $result->fetch_assoc();
             <br><br>
             Desired Quantity :
             <br>
-            <input type="number" name="quantity">
+            <input type="number" class='orderQuantity' name="quantity">
             <br><br>
+            <input type='text' name='product_id' class='hidden product_id_input'>
             <input type="submit" value="Submit" class='submitButton'>
           </div>
         </form>
+
+        <div class='warehousesPartitionContainer'>
+          <h2>Product-Warehouse Storage Info</h2>
+
+          <?php
+            // count var to keep track of total warehouses being used to store
+            $num = 1;
+            // sql to select all the warehouse id's storing the specific product
+            $sql = "SELECT * FROM product_warehouse WHERE product_id = " . $_GET['productId'] . " AND quantity_stored > 0";
+            // run the query
+            $result = $conn->query($sql);
+            // ensure there are results
+            if ($result->num_rows > 0) {
+              // iterate through all warehouses from query results
+              while($row = $result->fetch_assoc()) {
+                // query to retrieve warehouse info from warehouse id
+                $sql = "SELECT * FROM warehouses WHERE id = " . $row['warehouse_id'];
+                // run the query
+                $result2 = $conn->query($sql);
+                // retrieve the query results
+                $row2 = $result2->fetch_assoc();
+                // call method to display warehouses with specified data
+                displayWarehouses($num, $row2['street_address'], $row2['city'], $row2['state'], $row2['zip'], $row['quantity_stored']);
+                // increment count
+                $num++;
+              }
+            }
+            else {
+                echo "0 results in product_warehouse";
+            }
+          ?>
+          <br>
+        </div>
 
 
       </div>
@@ -96,5 +151,6 @@ $row = $result->fetch_assoc();
 </html>
 
 <?php
+// close the db connection
 $conn->close();
 ?>

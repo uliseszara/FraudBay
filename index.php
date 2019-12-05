@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <?php
+// DB connection credentials
   $servername = "classmysql.engr.oregonstate.edu";
   $username = "cs340_zaragozu";
   $password = "3243";
   $dbname = "cs340_zaragozu";
 
+  // establish connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
+  // test connection
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM products";
+  // sql to select all products with a quantity > 0
+  $sql = "SELECT * FROM products WHERE product_quantity > 0";
+  // run the query
   $result = $conn->query($sql);
 
-
+  // function to display the fraud posts HTML content, specific to each product's info
+    // concatenates the HTML string to output
   function displayFraudPost($id, $img, $heading, $description, $quantity, $price, $validationCode) {
     echo  "<div class='fraud-post product-id-" . $id . "'>
               <img src='" . $img . "' class='fraud-post-img fraud-post-element'>
@@ -55,9 +61,11 @@
       <div class='fraud-post-container'>
 
         <?php
+        // ensure that product query returned results
           if ($result->num_rows > 0) {
-              // output data of each row
+              // iterate through all the query results
               while($row = $result->fetch_assoc()) {
+                // call method to display fraud posts with specified data
                 displayFraudPost($row["id"], $row["product_image"], $row["product_name"], $row["product_description"], $row["product_quantity"], $row["product_price"], $row["validation_code"]);
               }
           } else {
@@ -89,5 +97,6 @@
 </html>
 
 <?php
+// close the db connection
 $conn->close();
 ?>

@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <?php
+  // DB connection credentials
   $servername = "classmysql.engr.oregonstate.edu";
   $username = "cs340_zaragozu";
   $password = "3243";
   $dbname = "cs340_zaragozu";
 
+  // establish connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
+  // test connection
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
+  // sql to display all warehouses for storing products
   $sql = "SELECT * FROM warehouses";
+  // run the query
   $result = $conn->query($sql);
 
-
+  // function to display the warehouse HTML content
+    // concatenates the HTML string to output
   function displayWarehouse($id, $street_address, $city, $state, $zip) {
     echo
       "<div class = 'warehouse-container'>
@@ -27,7 +33,8 @@
           <p>Quantity:</p>
           <input name='warehouseQuantity-id-" . $id . "' type='number' class='warehouse-product-quantityInput'>
         </div>
-      </div>";
+      </div>
+      <br>";
   }
 ?>
 <html>
@@ -70,13 +77,16 @@
 
           Warehouse Locations:
           <br>
+          <br>
           <label class="container">
             <div class = "all-warehouses">
 
               <?php
+                // ensure query returned results
                 if ($result->num_rows > 0) {
-                    // output data of each row
+                    // iterate through all warehouse rows from query
                     while($row = $result->fetch_assoc()) {
+                      // call method to display warehouses specified data
                       displayWarehouse($row["id"], $row["street_address"], $row["city"], $row["state"], $row["zip"]);
                     }
                 } else {
@@ -86,7 +96,7 @@
 
             </div>
           </label>
-          <br>
+
           <br>
           <a href="warehouse.html">
             <input type='button' value="Add Warehouses" class='submitButton'>
@@ -108,5 +118,6 @@
 </html>
 
 <?php
+// close the db connection
 $conn->close();
 ?>

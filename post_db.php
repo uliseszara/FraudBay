@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 
 <?php
+  // DB connection credentials
   $servername = "classmysql.engr.oregonstate.edu";
   $username = "cs340_zaragozu";
   $password = "3243";
   $dbname = "cs340_zaragozu";
+  // the random string
   $rand = substr(md5(microtime()),rand(0,26),6);
   $sum = 0;
 
+  // establish connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
+  // test connection
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-
+  // query to insert into the products table using info from form in post.php
   $sql = "
   INSERT INTO products (product_name, product_description, product_price, product_image, validation_code, product_quantity)
   VALUES ('" .  $_GET['Title'] . "', '" .  $_GET['Description'] . "', '" .  $_GET['Price'] . "', '" .  $_GET['Image'] . "', '" .  $rand . "', " . $sum . ")";
 
+  // run the query and do a fail-safe check
   if ($conn->query($sql) != TRUE) {
-    die('could not create post');
+    // die if the post could not be created
+    echo "sql: " . $sql;
+    die('   ||||  error: could not create post');
+  } else {
+    // obtain the newly inserted product ID
+    $newProductId = $conn->insert_id;
   }
 
-
+  // iterate through the command line arguments
   foreach($_GET as $key => $value) {
+    // only interested in the args of warehouses
     if (strpos($key, 'warehouseCheckbox') !== false) {
+      // obtain the warehouse id
       $pieces = explode("-", $key);
       $warehouseId = end($pieces);
+      // obtain the quantity that will be stored in this warehouse
       $getString = 'warehouseQuantity-id-' . $warehouseId;
       $quantity = $_GET[$getString];
+      // accumulate the sum
       $sum += $quantity;
+      // sql to insert into M:M product_warehouse table
       $sql = "
       INSERT INTO product_warehouse (product_id, warehouse_id, quantity_stored)
       VALUES (
-        (SELECT id FROM products WHERE product_name LIKE '" .  $_GET['Title'] . "' AND product_description LIKE '" .  $_GET['Description'] . "'),
-        (" . $warehouseId . "),
+        " . $newProductId . ",
+        " . $warehouseId . ",
         " . $quantity . "
       )";
       if ($conn->query($sql) != TRUE) {
-        die('could not insert M:M');
+        // die if the post could not be created
+        echo "sql: " . $sql;
+        die('   ||||  error: could not insert into M:M relationship');
       }
     }
   }
 
+  // sql to update the product quantity with the total sum of products over all warehouses
   $sql = "
     UPDATE products
     SET product_quantity = " . $sum . "
-    WHERE product_name LIKE '" .  $_GET['Title'] . "' AND product_description LIKE '" .  $_GET['Description'] . "'
-  ";
+    WHERE id = " . $newProductId;
 
-
+  // run query and ensure it was able to execute
   if ($conn->query($sql) != TRUE) {
-    die('could not update');
+    die('could not update the product quantity');
   }
 
 ?>
@@ -91,5 +108,6 @@
 </html>
 
 <?php
+// close the db connection
 $conn->close();
 ?>
